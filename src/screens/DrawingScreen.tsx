@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {Button} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../navigation/AppNavigator';
 import {DrawingCanvas, DrawingToolbar} from '../components/Canvas';
+import {TextInputComponent} from '../components/VoiceInput';
 
 type DrawingScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -21,6 +22,9 @@ const DrawingScreen: React.FC = () => {
       </View>
       <View style={styles.toolbar}>
         <DrawingToolbar />
+      </View>
+      <View style={styles.inputArea}>
+        <TextInputComponent />
       </View>
       <View style={styles.bottomBar}>
         <Button
@@ -55,6 +59,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#e0e0e0',
     paddingVertical: 8,
+  },
+  inputArea: {
+    backgroundColor: '#ffffff',
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
   },
   bottomBar: {
     flexDirection: 'row',
