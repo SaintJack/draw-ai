@@ -21,6 +21,7 @@ interface DrawingState {
   deleteShape: (id: string) => void;
   setShapes: (shapes: Shape[]) => void;
   clearShapes: () => void;
+  setCurrentDrawingId: (id: string | null) => void;
 
   // 历史操作
   undo: () => void;
@@ -102,7 +103,12 @@ export const useDrawingStore = create<DrawingState>((set, get) => ({
       shapes: [],
       history: [],
       historyIndex: -1,
+      currentDrawingId: null,
     });
+  },
+
+  setCurrentDrawingId: (id) => {
+    set({currentDrawingId: id});
   },
 
   undo: () => {

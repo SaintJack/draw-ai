@@ -5,7 +5,7 @@ import GalleryScreen from '../screens/GalleryScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 export type RootStackParamList = {
-  Drawing: undefined;
+  Drawing: {drawingId?: string} | undefined;
   Gallery: undefined;
   Settings: undefined;
 };
